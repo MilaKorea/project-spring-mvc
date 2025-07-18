@@ -25,11 +25,11 @@ public class CarsController {
       @GetMapping()
     public String showCarsByCount(@RequestParam(value = "count", required = false) Integer count, Model model){
         List<Car> result;
-        if(count == null || count == 0 || count >= carService.getAllCars().size()){
-            result = carService.getAllCars();
+        if(count == null || count == 0 || count >= carService.getListOfCars().size()){
+            result = carService.getListOfCars();
             model.addAttribute("title", "Full List of Cars");
         }else {
-            result = carService.selectCars(count);
+            result = carService.takeListOfCarByCount(count);
             model.addAttribute("title", "Cars by Count: " + count);
         }
             model.addAttribute("cars", result);

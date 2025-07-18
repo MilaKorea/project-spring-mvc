@@ -8,19 +8,19 @@ import web.models.Car;
 import java.util.List;
 
 @Service
-public class CarService {
+public class CarService implements CarServiceInterface{
     private final CarsDAO carsDAO;
 
     @Autowired
     public CarService(CarsDAO carsDAO){
         this.carsDAO = carsDAO;
     }
-
-    public List<Car> getAllCars(){
+    @Override
+    public List<Car> getListOfCars(){
         return carsDAO.getListOfCars();
     }
-
-    public List<Car> selectCars(int count){
+    @Override
+    public List<Car> takeListOfCarByCount(int count){
         return carsDAO.takeListOfCarByCount(count);
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class CarsDAO {
+public class CarsDAO implements CarDao{
     private List<Car> listOfCars;
     {
         listOfCars = new ArrayList<>();
@@ -17,11 +17,11 @@ public class CarsDAO {
         listOfCars.add(new Car("Stormrunner V-Twin", "V2 Diesel Engine", 2015));
         listOfCars.add(new Car("Nebula Aero", "Hydrogen Fuel Cell", 2023));
     }
-
+    @Override
     public List<Car> getListOfCars() {
         return listOfCars;
     }
-
+    @Override
     public List<Car> takeListOfCarByCount(int count){
         if(count>=listOfCars.size()){
             return listOfCars;
